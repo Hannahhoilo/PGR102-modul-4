@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Warrior Queen</title>
+    <style>
+      #warrior-1 {
+        height: 200px;
+      }
+
+      #tree-1 {
+        height: 400px;
+        cursor: url(images/battle-axe-154454_640.png), pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Forbered din reise til det magiske land</h1>
+    <h2>Hugg treet for å få treverk til å lage piler til din reise.</h2>
+
+    <input
+      id="make-arrow-button"
+      type="button"
+      value="Lag pil (koster 10 treenheter per pil)"
+    />
+
+    <p id="status-wood-metal">Mengde tre: 0</p>
+    <p id="status-arrows">Antall piler: 0</p>
+    <p id="status-update">Ingenting skjer så langt</p>
+
+    <div>
+      <img id="warrior-1" src="images/warrior2.png" alt="" />
+      <img id="tree-1" src="images/tree.png" />
+    </div>
+
+    <script>
+      // HTML-objekter
+      const tree = document.getElementById("tree-1");
+      const statusUpdate = document.getElementById("status-update");
+      const makeArrowBtn = document.getElementById("make-arrow-button");
+      const statusArrows = document.getElementById("status-arrows");
+      const statusWoodMetal = document.getElementById("status-wood-metal");
+
+      // tellere
+      let treeCounter = 0;
+      let arrowCounter = 0;
+
+      // functions
+      function gatherTree() {
+        treeCounter += 15;
+        updateTreeAmount();
+      }
+
+      function makeArrows() {
+        if(treeCounter >= 10){
+          arrowCounter += 1;
+          treeCounter -= 10;
+
+          statusArrows.innerHTML = `Antall piler: ${arrowCounter}`;
+          updateTreeAmount();
+        }
+        else {
+          alert("Du har for lite treverk... hugg mere tre!")
+        }
+      }
+
+      function updateTreeAmount() {
+        statusWoodMetal.innerHTML = `Mengde tre: ${treeCounter}`;
+      }
+
+      // events
+      tree.onclick = gatherTree;
+      makeArrowBtn.onclick = makeArrows;
+
+    </script>
+  </body>
+</html>

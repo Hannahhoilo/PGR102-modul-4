@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Onclick</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+
+  <body>
+    <!--    
+    //Hvordan bruker vi onclick?
+    //Hvordan bruker vi counter?
+    -->
+
+    <input type="button" value="Vis værmelding" id="weather-btn" />
+    <p id="counter-txt"></p>
+
+    <script>
+
+      const weatherBtn = document.getElementById("weather-btn");
+      const counterTxt = document.getElementById("counter-txt");
+      let counter = 0;
+
+      counterTxt.innerHTML = `Du har trykket på knappen ${counter} ganger`;
+
+      weatherBtn.onclick = showWeather;
+
+      function showWeather() {
+        alert('I dag er det sol!');
+        counter++;
+        counterTxt.innerHTML = `Du har trykket på knappen ${counter} ganger!`;
+      }
+
+    </script>
+  </body>
+</html>

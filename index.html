@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+	<h1>Hei sveis! 🌞</h1>
+
+	<div class="main-content">
+
+		<p id="new-txt">Gammel tekst</p>
+		<input type="button" value="Endre tekst" id="txt-btn" />
+		<br><br>
+
+
+		<input type="text" placeholder="Passord" id="input-field" />
+		<input type="button" value="Bekreft" id="confirm-btn" />
+		<div id="output-container"></div>
+		<br><br>
+
+		<img src="assets/kalkulator.avif" id="calculator-picture" alt="bilde av kalkulator" style="width: 200px;">
+
+		<button id="nyan-button" class="cat-button">Click for meow🐾</button>
+		<p id="nyan-counter-text"></p>
+		<div id="nyan-picture"></div>
+
+		<input type="text">
+
+		<script>
+
+
+
+			const nyanButton = document.getElementById("nyan-button");
+			const nyanCounterText = document.getElementById("nyan-counter-text");
+			const nyanPicture = document.getElementById("nyan-picture");
+			let nyanCounter = 0;
+
+			// Initial tekst for antall katter
+			nyanCounterText.innerHTML = `Du har ${nyanCounter} katter!`;
+
+			nyanButton.onclick = showCats;
+
+			function showCats() {
+				nyanCounter++;
+				nyanCounterText.innerHTML = `Du har ${nyanCounter} katter!`;
+
+				// Opretter et nytt <img> element og setter attributtene.
+				const newCatImg = document.createElement("img");
+				newCatImg.src = "assets/Nyan-Cat-Free-Download-PNG.png";
+				newCatImg.alt = "bilde av katt";
+				newCatImg.className = "cat-img";
+
+				// Legger til det nye <img> elementet i nyanPicture div.
+				nyanPicture.appendChild(newCatImg);
+			}
+
+
+
+
+
+
+
+
+
+
+
+
+			const calculatorPicture = document.getElementById("calculator-picture");
+			const superSecretNumber = 69
+
+			calculatorPicture.onclick = secretNumber;
+
+			function secretNumber() {
+				let userGuess = parseInt(prompt("Gjett det hemmelige nummeret"));
+				if (userGuess > superSecretNumber) {
+					alert("Du må litt lavere!")
+				} else if (userGuess < superSecretNumber) {
+					alert("Du må ha høyere nummer!")
+				} else if (userGuess == superSecretNumber)
+					alert("Du er næsty 🥲")
+			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+			const inputField = document.getElementById("input-field");
+			const confirmBtn = document.getElementById("confirm-btn");
+			const outputContainer = document.getElementById("output-container");
+
+			function passwordChecker() {
+				const userInput = inputField.value;
+				console.log(userInput);
+
+
+				if (userInput.toLowerCase().includes("heisveis")) {
+					outputContainer.innerHTML += `<p>Passord er riktig</p>`;
+				} else {
+					alert("Feil passord, din løk!");
+				}
+			}
+
+			confirmBtn.onclick = passwordChecker;
+
+
+
+
+			const newTxtElement = document.getElementById("new-txt");
+			const txtBtn = document.getElementById("txt-btn");
+
+			txtBtn.onclick = changeText;
+
+			function changeText() {
+				newTxtElement.innerHTML = "Dette er ny tekst!";
+			}
+
+
+			/*
+			modul 4
+			------------------------------
+	
+			functions 
+			blokk med kode
+			kan kalles på så mange ganger man vil
+			vi kombinerer ofte functions med events
+	
+			husk å kalle på funskjonen
+	
+			function funskjonensNavn() {
+				her kommer kode
+			}
+	
+			---------
+	
+			function greet() {
+				alert('hei og velkommen')
+			}
+	
+			greet();
+			dette betyr at den skal kalles på med en gang 
+	
+			greet();
+			greet();
+			greet();
+			her kalles den på 3 ganger 
+	
+			---------
+	
+			vi kan kalle funskjoner når vi trykker på foskjellige typer
+			tagger for eksempen 
+			<img> <button> <div> etc
+	
+				<button id="my-button">trykk her </button>
+	
+				function greet() {
+				alert('hei og velkommen')
+			}
+	
+				const myButton = document.getElementById("my-btn");
+	
+				myBtn.onclick = greet;
+	
+			-------------
+	
+			navngivning er viktig 
+			navn + substantiv 
+	
+			---
+	
+			scope !!!
+			funskjonene bør skrives slik de er gjennbrukbare så man ikke dupliserer kode
+	
+			vi kan tenke på funskjoner er oppskrifter med sitt eget scope 
+			det svi skriver i funskjonen vil altså ikke leses
+			eller påvirke koden utenfor funskjonen
+			med mindre vi spesifikt ber om det 
+	
+			på grunn av svope vil variabbler som lages inne 
+			i en funskjon ikke kunne brukes i koden 
+			utenfor funskjonen da må de sendes videre som
+			parametere!
+	
+			------------------------------
+	
+			functiion showSpecialWord(){
+				const specialWord = "scope";
+				alert(specialWord);
+			}
+	
+			alert(specialWord);
+	
+			hvis vi prøver å bruke variablen specialWord som er 
+			laget i en funskjon utenfir funskjonen vil vi få error 
+	
+			--
+	
+			Events 
+			handlinger brukeren gjør som skal lede til noe
+			for eks klikke på noe,
+			tryke på tastatur
+			føre musepekeren over noe 
+			dobbeltklikke på noe 
+	
+			--
+	
+			onclick
+			hadlinger man kan tilsette forskjellige html elementer
+			onclick betuyr når man jkikker på noe eks <button>
+	
+			
+				------
+	
+	
+	
+			counter 
+	
+			<input> .value
+			.length
+	
+			+-
+	
+	
+	
+			*/
+
+		</script>
+
+</body>
+
+</html>

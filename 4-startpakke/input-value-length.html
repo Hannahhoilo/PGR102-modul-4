@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Input, value og .length</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+
+  <body>
+    <!--    
+    //Hvordan kan vi hente informasjon fra input-felter, og sjekke at brukeren har skrevet noe?
+    -->
+    <h1>Hva tenker du på i dag?</h1>
+    <input type="text" placeholder="Skriv her..." id="input-field" />
+    <input type="button" value="Bekreft" id="confirm-btn" />
+    <div id="output-container"></div>
+
+    <script>
+      const inputField = document.getElementById("input-field");
+      const confirmBtn = document.getElementById("confirm-btn");
+      const outputContainer = document.getElementById("output-container");
+
+      confirmBtn.oncick = showUserTought;
+
+
+      function showUserTought() {
+        const userInput = inputField.value;
+        inputField.value = "";
+        console.log(userInput);
+
+
+        if(userInput.length == 0){
+          alert("Du må skrive noe i feltet!")
+        } else{
+          outputContainer.innerHTML += `<p>${userInput}</p>`;
+        }
+      }
+
+      
+
+
+
+    </script>
+  </body>
+</html>
